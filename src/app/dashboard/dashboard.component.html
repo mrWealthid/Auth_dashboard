@@ -1,0 +1,16 @@
+<section class="flex gap-1 ">
+    <div class="w-1/5 bg-gray-900 flex flex-col gap-1  text-white min-h-screen p-2">
+        <p class="text-lg text-center mb-2">Angular</p>
+        <ng-container *ngFor="let link of links">
+            <a [routerLinkActiveOptions]="{exact:true}" [routerLink]="[link.path]"
+               class="p-2 transition duration-500 hover:translate-x-0.5"
+               routerLinkActive="bg-[#f16521] rounded-lg ">{{link.text}}</a>
+        </ng-container>
+    </div>
+    <div class="flex flex-col w-4/5">
+        <div class="bg-white first-letter:text-[#f16521] first-letter:text-3xl py-4 px-2">
+            <app-navbar></app-navbar>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</section>

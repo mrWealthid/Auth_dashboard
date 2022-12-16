@@ -1,0 +1,9 @@
+<section class="flex justify-between">
+    <p>navbar works!</p>
+    <nav class="flex gap-2">
+        <a *ngIf="!authenticated" [routerLink]='["/login"]' routerLinkActive="text-green-300">Login</a>
+        <a *ngIf="!authenticated" [routerLink]='["/signup"]' routerLinkActive="text-green-300">Signup</a>
+        <a (click)="logout()" *ngIf="authenticated" class="cursor-pointer"
+           routerLinkActive="text-green-300">Logout</a>
+    </nav>
+</section>
