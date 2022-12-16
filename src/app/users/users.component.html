@@ -1,0 +1,48 @@
+<p class="text-xl"> Angular Forms Features</p>
+<p class="text-lg mt-4">Custom Validation</p>
+<form [formGroup]="testForm">
+    <input formControlName="firstName" placeholder="test" type="text">
+    <div *ngIf="firstName.invalid && firstName.touched">
+        <span *ngIf="firstName.errors?.['required']">Name is Required</span>
+        <span *ngIf="firstName.errors?.['forbidden']">Name is invalid</span>
+    </div>
+    <br>
+    <br>
+    <input formControlName="phone" placeholder="Nums" type="text">
+    <div *ngIf="phone.invalid && phone.touched">
+        <span *ngIf="phone.errors?.['required']">phone is Required</span>
+        <span *ngIf="phone.errors?.['numb']">phone  is Invalid</span>
+    </div>
+    <!--    =========> FormBuilder-->
+    <!--    <input formControlName="firstName" placeholder="test" type="text">-->
+    <!--    <div *ngIf="testForm.get('firstName')?.invalid && testForm.get('firstName')?.touched">-->
+    <!--        <span *ngIf="testForm.get('firstName')?.errors?.['required']">Name is Required</span>-->
+    <!--        <span *ngIf="testForm.get('firstName')?.errors?.['forbidden']">Name is invalid</span>-->
+    <!--    </div>-->
+    <!--    <br>-->
+    <!--    <br>-->
+    <!--    <input formControlName="phone" placeholder="Nums" type="text">-->
+    <!--    <div *ngIf="testForm.get('phone')?.invalid && testForm.get('phone')?.touched">-->
+    <!--        <span *ngIf="testForm.get('phone')?.errors?.['required']">phone is Required</span>-->
+    <!--        <span *ngIf="testForm.get('phone')?.errors?.['numb']">phone  is Invalid</span>-->
+    <!--    </div>-->
+    <p class="text-lg mt-4">Async Validation with debounce</p>
+    <input formControlName="email" placeholder="email" type="text">
+    <div *ngIf=" !testForm.get('email')?.pristine">
+        <p *ngIf="testForm.get('email')?.pending">Loading...</p>
+        <span *ngIf="testForm.get('email')?.errors?.['required']">Email is Required</span>
+        <span *ngIf="testForm.get('email')?.errors?.['forbiddenEmail']">Email  is Invalid</span>
+    </div>
+    <div class="flex flex-col w-1/4 mt-4">
+        <strong>Input Masking Test Without Library</strong>
+        <em>PROS: The form input value is changed to exactly what is displayed</em>
+        <em>CONS: Its requires logic, time consuming</em>
+        <input formControlName="cardNumber" placeholder="MM/YY" type="text">
+    </div>
+    <div class="flex flex-col w-1/4 mt-4">
+        <strong>Input Masking Test With Library</strong>
+        <em>CONS: The form input value remains unchanged though what is displayed looks changed</em>
+        <input formControlName="cardNumberMask" mask="00/00" placeholder="MM/YY" type="text">
+    </div>
+    <button (click)="handleSubmit()">Submit</button>
+</form>

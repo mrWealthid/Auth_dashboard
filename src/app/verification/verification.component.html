@@ -1,0 +1,102 @@
+<div>
+    <h1>NGX DataTable</h1>
+</div>
+<div class="border-top" style="margin-bottom: 1rem !important;">
+</div>
+<div class="col-md-12 mb-3" style="margin-top: 10px;">
+    <ngx-datatable [columnMode]="'force'"
+                   [footerHeight]="50"
+                   [footerHeight]="50"
+                   [headerHeight]="50"
+                   [headerHeight]="50"
+                   [rowHeight]="'auto'"
+                   [rows]="rows"
+                   [scrollbarH]="true"
+                   class="material container striped" rowHeight="auto">
+        <ngx-datatable-column [flexGrow]="0.5" name="#">
+            <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                {{(rowIndex + 1)}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Name">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{ row?.name | titlecase }}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Age">
+            <ng-template let-value="value" ngx-datatable-header-template>
+                {{value?.age}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Town">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.town}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.country}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.sex}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.color}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column [flexGrow]="2" [frozenRight]="true" name="Country">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.test}}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</div>
