@@ -2,6 +2,14 @@
     <h1>NGX DataTable</h1>
 </div>
 <div class="border-top" style="margin-bottom: 1rem !important;">
+    <form [formGroup]="newForm">
+        <input formControlName="user" placeholder="user" type="text">
+        <br>
+        <br>
+        <input formControlName="country" placeholder="country" type="text">
+        <app-custom formControlName="skills"></app-custom>
+    </form>
+    <button (click)="handleSubmit()">Submit</button>
 </div>
 <div class="col-md-12 mb-3" style="margin-top: 10px;">
     <ngx-datatable [columnMode]="'force'"

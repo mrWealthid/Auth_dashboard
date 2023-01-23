@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormGroup, UntypedFormBuilder} from "@angular/forms";
 
 @Component({
     selector: 'app-verification',
@@ -41,10 +42,25 @@ export class VerificationComponent implements OnInit {
             sexs: "kenya"
         }
     ];
+    newForm: FormGroup;
 
-    constructor() {
+    constructor(private fb: UntypedFormBuilder) {
+        this.newForm = fb.group({
+            user: '',
+            country: '',
+            skills: [null]
+        });
+    }
+
+    get skillValue() {
+        return this.newForm.get('skills')?.value;
     }
 
     ngOnInit(): void {
+    }
+
+    handleSubmit() {
+        console.log(this.skillValue);
+        console.log(this.newForm.value);
     }
 }
