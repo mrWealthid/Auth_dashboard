@@ -39,8 +39,6 @@
                     <span (click)="togglePassword()" *ngIf="isShown">
                                 <fa-icon [icon]="faEyeSlash" class="text-gray-300 cursor-pointer"></fa-icon></span>
                 </div>
-                {{password.pristine}}
-                {{password.touched}}
                 <password-strength-plugin [config]=results [control]="password"
                 ></password-strength-plugin>
                 <!--                <section *ngIf="!password.pristine && password.valid" class="flex flex-col mt-4 ">-->
