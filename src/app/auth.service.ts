@@ -70,10 +70,6 @@ export class AuthService {
         // }));
     }
 
-    //Reset
-    // refreshToken(data: any) {
-    //     return this._http.post('refresh', data, {withCredentials: true});
-    // }
     AutoSiginIn() {
     }
 
@@ -92,6 +88,29 @@ export class AuthService {
         return this.refresh;
     }
 
+    passwordReset(email: string) {
+        return this._http.post(`https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${environment.apiKey}`, {
+            requestType: "PASSWORD_RESET",
+            email
+        });
+    }
+
+    confirmPasswordReset() {
+        // https://identitytoolkit.googleapis.com/v1/accounts:resetPassword?key=[API_KEY]
+    }
+
+    verifyPasswordReset() {
+        //https://identitytoolkit.googleapis.com/v1/accounts:resetPassword?key=[API_KEY]
+    }
+
+    updateProfile(data: updateModel) {
+        return this._http.post(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${environment.apiKey}`, data);
+    }
+
+    getUserInfo() {
+        return this._http.post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${environment.apiKey}`, {idToken: this.getAccessToken()});
+    }
+
     logout() {
     }
 
@@ -107,12 +126,12 @@ export class AuthService {
         this.access = user.token;
         this.refresh = user.refreshToken;
         console.log(user.token);
-        // const decoded = helper.decodeToken(idToken);
-        // const expired = helper.isTokenExpired(idToken);
-        // console.log('Decoded with===>', decoded);
-        // console.log('IsExpired===> ', expired);
-        // setTimeout(() => {
-        //     console.log('IsExpired===> ', expired)
-        // }, 36000)
     }
+}
+
+export interface updateModel {
+    idToken: string;
+    displayName: string;
+    photoUrl: string;
+    returnSecureToken: boolean;
 }

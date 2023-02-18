@@ -22,9 +22,17 @@ export class UsersComponent implements OnInit {
     cardNumberMask: FormControl;
     isVerify = false;
     testValue: Observable<any> = of('wealth@gmail.com');
+    posts: any[];
 
     constructor(private fb: UntypedFormBuilder, private authService: AuthService, private _http: HttpClient) {
     }
+
+    get skillsValue() {
+        return this.testForm.get('skills')?.value;
+    }
+
+    onTouched = () => {
+    };
 
     ngOnInit(): void {
         this.firstName = new FormControl(null, [Validators.required, this.customValidator.bind(this)]);
@@ -42,7 +50,7 @@ export class UsersComponent implements OnInit {
         this.testForm.valueChanges.subscribe(value => console.log(value));
         this.testForm.statusChanges.subscribe(value => console.log(value));
         // this.email.statusChanges.subscribe(value => {
-        //     if (/PENDING/.test(value)) {
+        //     if (/PENDING/.rename(value)) {
         //         this.isVerify = true;
         //     }
         // });
@@ -52,8 +60,20 @@ export class UsersComponent implements OnInit {
         //     firstName: [null, [Validators.required, this.customValidator.bind(this)]],
         //     phone: [null, [Validators.required, this.additionalValidator.bind(this)]]
         // });
+        this.testForm = this.fb.group({
+            skills: [''],
+            gender: ['']
+        });
         this.testValue.subscribe(val => console.log('Observable==>', val));
         // this.authService.postData().subscribe();
+        let idtoken = this.authService.getAccessToken();
+        this.authService.fetchData().subscribe();
+        this.authService.updateProfile({
+            displayName: "Mr-Wealth",
+            idToken: idtoken,
+            photoUrl: '',
+            returnSecureToken: true
+        }).subscribe();
         this.authService.fetchData().pipe(map((res: any) => {
             const postArray = [];
             for (const key in res) {
@@ -63,11 +83,13 @@ export class UsersComponent implements OnInit {
                 }
             }
             return postArray;
-        })).subscribe(resp => console.log(resp));
+        })).subscribe(resp => this.posts = resp);
+        this.authService.getUserInfo().subscribe(res => console.log(res));
     }
 
     //How to add Custom validator in angular
     handleSubmit() {
+        console.log(this.skillsValue);
         console.log(this.testForm.value);
     }
 
@@ -76,6 +98,12 @@ export class UsersComponent implements OnInit {
             return {'forbidden': true};
         }
         return null;
+    }
+
+    patchValue() {
+        this.testForm.patchValue({
+            gender: "fresh"
+        });
     }
 
     additionalValidator(control: AbstractControl): any {

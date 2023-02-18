@@ -20,7 +20,6 @@ export class AuthInterceptor implements HttpInterceptor {
         if (request.url.includes(':signInWithPassword') || request.url.includes('token')) {
             return next.handle(request);
         }
-        // this.authService.currentUser.subscribe(user => console.log(user?.token));
         // Add the access token to the request header
         request = request.clone({params: new HttpParams().set('auth', this.authService.getAccessToken())});
         return next.handle(request).pipe(

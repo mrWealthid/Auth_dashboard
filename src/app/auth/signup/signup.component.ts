@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {
-  faAt,
-  faCalendarAlt,
-  faCircleExclamation,
-  faEye,
-  faEyeSlash,
-  faLock,
-  faPhone,
-  faUser
+    faAt,
+    faCalendarAlt,
+    faCircleExclamation,
+    faEye,
+    faEyeSlash,
+    faLock,
+    faPhone,
+    faUser
 } from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../auth.service";
@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
     handleRegister(values: any) {
         console.log(values);
         // console.log(values);
-        // this.authservice.register(values);
+        this.authservice.register(values).subscribe(res => console.log(res));
     }
 
     togglePassword() {

@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         if (req.url.includes(':signInWithPassword')) {
             return next.handle(req);
         } else {
-            // if (this.test) {
+            // if (this.rename) {
             //     return next
             //         .handle(req);
             // } else {
@@ -41,7 +41,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 //     console.log(user?.token);
 //     AuthInterceptorService.accessToken = user?.token;
 //     if (!user) {
-//     console.log('No user ===> test');
+//     console.log('No user ===> rename');
 //     return next.handle(req);
 // }
 // // If a param needs to be added we can update it with this; using Params in the clone object; if it's header we can do the same!

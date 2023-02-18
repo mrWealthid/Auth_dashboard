@@ -7,7 +7,7 @@ import {OverviewComponent} from './overview/overview.component';
 import {VerificationComponent} from './verification/verification.component';
 import {UsersComponent} from './users/users.component';
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './auth/login/login.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {ngxLoadingAnimationTypes, NgxLoadingModule} from "ngx-loading";
@@ -19,6 +19,11 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./Reducers";
 import {IConfig, NgxMaskModule} from "ngx-mask";
 import {AuthInterceptor} from "./auths-intercept";
+import {CustomComponent} from "./verification/custom/custom.component";
+import {NgSelectModule} from "@ng-select/ng-select";
+import {RenameComponent} from './rename/rename/rename.component';
+import {Ng9PasswordStrengthBarModule} from "ng9-password-strength-bar";
+import {PasswordStrengthPluginComponent} from "./password-strength-checker/password-strength-plugin.component";
 
 const maskConfig: Partial<IConfig> = {
     validation: false,
@@ -33,7 +38,10 @@ const maskConfig: Partial<IConfig> = {
         UsersComponent,
         LoginComponent,
         SignupComponent,
-        NavbarComponent
+        NavbarComponent,
+        CustomComponent,
+        RenameComponent,
+        PasswordStrengthPluginComponent
     ],
     imports: [
         // provideFirebaseApp(() => initializeApp(environment)),
@@ -43,6 +51,7 @@ const maskConfig: Partial<IConfig> = {
         ReactiveFormsModule,
         HttpClientModule,
         NgbModule,
+        Ng9PasswordStrengthBarModule,
         NgxMaskModule.forRoot(maskConfig),
         StoreModule.forRoot(reducers)
         , RouterModule.forRoot([
@@ -67,7 +76,7 @@ const maskConfig: Partial<IConfig> = {
             primaryColour: "green",
             secondaryColour: "red",
             tertiaryColour: "blue",
-        }), FontAwesomeTestingModule
+        }), FontAwesomeTestingModule, FormsModule, NgSelectModule
     ],
     providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
     bootstrap: [AppComponent]

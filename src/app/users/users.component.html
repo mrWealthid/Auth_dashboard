@@ -1,6 +1,17 @@
 <p class="text-xl"> Angular Forms Features</p>
 <p class="text-lg mt-4">Custom Validation</p>
 <form [formGroup]="testForm">
+    <div>
+        <input class="custom-control-input" formControlName="gender" id="male" name="gender" type="radio" value="male">
+        <label class="custom-control-label" for="male">Male</label>
+    </div>
+    <div>
+        <input class="custom-control-input" formControlName="gender" id="female" name="gender" type="radio"
+               value="female">
+        <label class="custom-control-label" for="female">Female</label>
+    </div>
+    <button (click)="patchValue()">Patch</button>
+    <br>
     <input formControlName="firstName" placeholder="test" type="text">
     <div *ngIf="firstName.invalid && firstName.touched">
         <span *ngIf="firstName.errors?.['required']">Name is Required</span>
@@ -14,7 +25,7 @@
         <span *ngIf="phone.errors?.['numb']">phone  is Invalid</span>
     </div>
     <!--    =========> FormBuilder-->
-    <!--    <input formControlName="firstName" placeholder="test" type="text">-->
+    <!--    <input formControlName="firstName" placeholder="rename" type="text">-->
     <!--    <div *ngIf="testForm.get('firstName')?.invalid && testForm.get('firstName')?.touched">-->
     <!--        <span *ngIf="testForm.get('firstName')?.errors?.['required']">Name is Required</span>-->
     <!--        <span *ngIf="testForm.get('firstName')?.errors?.['forbidden']">Name is invalid</span>-->
@@ -46,3 +57,7 @@
     </div>
     <button (click)="handleSubmit()">Submit</button>
 </form>
+<!--<section *ngFor="let post of posts">-->
+<!--    <p>{{post.name}}</p>-->
+<!--    <p>{{post.id}}</p>-->
+<!--</section>-->
