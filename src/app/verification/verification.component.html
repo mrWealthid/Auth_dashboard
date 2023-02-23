@@ -1,148 +1,148 @@
 <div>
-    <h1>NGX DataTable</h1>
+  <h1>NGX DataTable</h1>
 </div>
 <div class="border-top" style="margin-bottom: 1rem !important;">
-    <form [formGroup]="newForm">
-        <!--        <input formControlName="user" placeholder="user" type="text">-->
-        <!--        <br>-->
-        <!--        <br>-->
-        <!--        <input formControlName="country" placeholder="country" type="text">-->
-        <!--        <app-custom formControlName="skills"></app-custom>-->
-        <div>
-            <ng-select
-                    (blur)="onTouched()"
-                    [closeOnSelect]="true"
-                    [items]="billers | async"
-                    [loading]="loadingBillers"
-                    [multiple]="false"
-                    [searchable]="true"
-                    bindLabel="billerName"
-                    bindValue="billerId"
-                    class="w-1/4 p-0 border border-black"
-                    data-cy="biller"
-                    formControlName="biller"
-                    id="field_biller"
-                    name="biller"
-                    placeholder="test">
-            </ng-select>
-        </div>
-        <br>
-        <br>
-        <div>
-            <ng-select
-                    (blur)="onTouched()"
-                    [closeOnSelect]="true"
-                    [items]="service | async"
-                    [loading]="loadingBillers"
-                    [multiple]="false"
-                    [searchable]="true"
-                    bindLabel="name"
-                    bindValue="id"
-                    class="w-1/4 p-0 border border-black"
-                    data-cy="biller"
-                    formControlName="service"
-                    id="field_service"
-                    name="biller"
-                    placeholder="service">
-            </ng-select>
-        </div>
-    </form>
-    <button (click)="handleSubmit()">Submit</button>
+  <form [formGroup]="newForm">
+    <!--        <input formControlName="user" placeholder="user" type="text">-->
+    <!--        <br>-->
+    <!--        <br>-->
+    <!--        <input formControlName="country" placeholder="country" type="text">-->
+    <!--        <app-custom formControlName="skills"></app-custom>-->
+    <div>
+      <ng-select
+        (blur)="onTouched()"
+        [closeOnSelect]="true"
+        [items]="billers | async"
+        [loading]="loadingBillers"
+        [multiple]="false"
+        [searchable]="true"
+        bindLabel="billerName"
+        bindValue="billerId"
+        class="w-1/4 p-0 border border-black"
+        data-cy="biller"
+        formControlName="biller"
+        id="field_biller"
+        name="biller"
+        placeholder="test">
+      </ng-select>
+    </div>
+    <br>
+    <br>
+    <div>
+      <ng-select
+        (blur)="onTouched()"
+        [closeOnSelect]="true"
+        [items]="service | async"
+        [loading]="loadingBillers"
+        [multiple]="false"
+        [searchable]="true"
+        bindLabel="name"
+        bindValue="id"
+        class="w-1/4 p-0 border border-black"
+        data-cy="biller"
+        formControlName="service"
+        id="field_service"
+        name="biller"
+        placeholder="service">
+      </ng-select>
+    </div>
+  </form>
+  <button (click)="handleSubmit()">Submit</button>
 </div>
 <!--<div class="col-md-12 mb-3" style="margin-top: 10px;">-->
-<!--    <ngx-datatable [columnMode]="'force'"-->
-<!--                   [footerHeight]="50"-->
-<!--                   [footerHeight]="50"-->
-<!--                   [headerHeight]="50"-->
-<!--                   [headerHeight]="50"-->
-<!--                   [rowHeight]="'auto'"-->
-<!--                   [rows]="rows"-->
-<!--                   [scrollbarH]="true"-->
-<!--                   class="material container striped" rowHeight="auto">-->
-<!--        <ngx-datatable-column [flexGrow]="0.5" name="#">-->
-<!--            <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>-->
-<!--                {{(rowIndex + 1)}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Name">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{ row?.name | titlecase }}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Age">-->
-<!--            <ng-template let-value="value" ngx-datatable-header-template>-->
-<!--                {{value?.age}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Town">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.town}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.country}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.sex}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.color}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--        <ngx-datatable-column [flexGrow]="2" [frozenRight]="true" name="Country">-->
-<!--            <ng-template let-row="row" ngx-datatable-cell-template>-->
-<!--                {{row?.rename}}-->
-<!--            </ng-template>-->
-<!--        </ngx-datatable-column>-->
-<!--    </ngx-datatable>-->
-<!--</div>-->
+<ngx-datatable [columnMode]="'force'"
+               [footerHeight]="50"
+               [footerHeight]="50"
+               [headerHeight]="50"
+               [headerHeight]="50"
+               [rowHeight]="'auto'"
+               [rows]="rows"
+               [scrollbarH]="true"
+               class="material container striped" rowHeight="auto">
+  <ngx-datatable-column [flexGrow]="0.5" name="#">
+    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+      {{(rowIndex + 1)}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{ row?.name | titlecase }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Age">
+    <ng-template let-value="value" ngx-datatable-header-template>
+      {{value?.age}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Town">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.town}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.country}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.sex}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.color}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [flexGrow]="2" [frozenRight]="true" name="Country">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row?.rename}}
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
+
