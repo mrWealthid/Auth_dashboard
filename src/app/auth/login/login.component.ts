@@ -201,6 +201,16 @@ export class LoginComponent implements OnInit {
   testRouting() {
     this.router.navigateByUrl('/register', {state: {name: "wealth", age: 30, state: "delta", status: "Married"}})
   }
+
+  handleCheckout(val: any) {
+    this.authservice.createSession('5c88fa8cf4afda39709c2955').subscribe((x: any) => window.open(x.session.url, 'blank'))
+
+  }
+
+  handleRedirect() {
+  
+    window.location.href = "https://www.google.com"
+  }
 }
 
 // export interface IresultMap {

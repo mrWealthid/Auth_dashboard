@@ -30,7 +30,6 @@
     "jwt-decode": "^3.1.2",
     "ng": "^0.0.0",
     "ng-apexcharts": "^1.7.1",
-    "ng9-password-strength-bar": "^1.1.0",
     "ngx-bootstrap": "^9.0.0",
     "ngx-loading": "^14.0.0",
     "ngx-mask": "^14.2.4",
@@ -38,6 +37,7 @@
     "popper": "^1.0.1",
     "rxjs": "~7.5.0",
     "select": "^1.1.2",
+    "stripe": "^12.3.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

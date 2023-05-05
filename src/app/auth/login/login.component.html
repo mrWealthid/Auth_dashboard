@@ -90,6 +90,18 @@
           class="bg-green-800 py-3 my-1 rounded-lg w-full text-white">
           Login
         </button>
+
+
+        <button
+          (click)="handleCheckout('5c88fa8cf4afda39709c2955')"
+          class="bg-green-800 py-3 my-1 rounded-lg w-full text-white">
+          checkout
+        </button>
+        <button
+          (click)="handleRedirect()"
+          class="bg-green-800 py-3 my-1 rounded-lg w-full text-white">
+          Google
+        </button>
         <!--                <app-button [btnText]="authservice? 'Processing...':'Login'" [disabled]="LoginForm.invalid"-->
         <!--                            [styles]="'btn-primary'"></app-button>-->
       </section>
@@ -99,6 +111,7 @@
           Sign up
         </a>
       </p>
+
       <p class="flex  gap-3 text-sm tex-gray-800">
                         <span (click)="toggleForm()" class="text-blue-600 text-sm">
                             Reset Password
